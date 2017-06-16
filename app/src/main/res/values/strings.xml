@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MapIntent</string>
+
+    <string name="kakao_app_key">0a0369286467f62df9d50c1c1945e0bf</string>
+    <string name="sk_app_key">20799139-c50a-31a6-845a-14f0e533d0fe</string>
+
+</resources>
