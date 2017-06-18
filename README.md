@@ -41,4 +41,4 @@ NaviBuilder에 선언된 타입사용하여 호출할 앱 선택, 주소, 위경
         
 
 ##### ScreenShot
-![alt text](https://github.com/kakatoto/KakatotoAlbumPicker/blob/master/screenshot1.gif)
+![alt text](https://github.com/kakatoto/NaviIntentBuilder/blob/master/KakaoTalk_Photo_2017-06-18-16-32-41_51.gif)
