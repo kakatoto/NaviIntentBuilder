@@ -85,11 +85,11 @@ public class NaviBuilder {
                 break;
 
             case NAVER_MAP:
-                intentKakaoMap();
+                intentNaverMap();
                 break;
 
             case KAKAO_MAP:
-                intentNaverMap();
+                intentKakaoMap();
                 break;
 
             case KAKAO_NAVI:
@@ -144,7 +144,7 @@ public class NaviBuilder {
     private void intentNaverMap() {
         if (isAppInstall(NAVER_MAP)) {
             StringBuilder sb = new StringBuilder("geo:").
-                    append(lat + "," + lng).
+                    append((float)lat + "," + (float)lng).
                     append("?q=").append(Uri.encode(addr));
             Uri uri = Uri.parse(sb.toString());
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
@@ -168,36 +168,16 @@ public class NaviBuilder {
     }
 
     private void intentTmap() {
-        final TMapTapi tMapTapi = new TMapTapi(context);
-        tMapTapi.setSKPMapAuthentication(context.getString(R.string.sk_app_key));
-        tMapTapi.setOnAuthenticationListener(new TMapTapi.OnAuthenticationListenerCallback() {
-            @Override
-            public void SKPMapApikeySucceed() {
-                if(tMapTapi.isTmapApplicationInstalled()){
-                    tMapTapi.invokeRoute("T타워", 126.984098f, 37.566385f);
-                }else{
-                    Intent marketLaunch = new Intent(Intent.ACTION_VIEW);
-                    marketLaunch.setData(Uri.parse("market://details?id=" + T_MAP));
-                    context.startActivity(marketLaunch);
-                }
-            }
+        if (isAppInstall(T_MAP)) {
+            final TMapTapi tMapTapi = new TMapTapi(context);
+            tMapTapi.setSKPMapAuthentication(context.getString(R.string.sk_app_key));
+            tMapTapi.invokeRoute(addr, (float) lat, (float) lng);
 
-            @Override
-            public void SKPMapApikeyFailed(String s) {
-
-            }
-
-            @Override
-            public void SKPMapBizAppIdSucceed() {
-
-            }
-
-            @Override
-            public void SKPMapBizAppIdFailed(String s) {
-
-            }
-        });
-
+        }else {
+            Intent marketLaunch = new Intent(Intent.ACTION_VIEW);
+            marketLaunch.setData(Uri.parse("market://details?id=" + T_MAP));
+            context.startActivity(marketLaunch);
+        }
     }
 
     private Boolean isAppInstall(String pkname) {
