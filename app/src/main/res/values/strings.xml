@@ -4,4 +4,10 @@
     <string name="kakao_app_key">0a0369286467f62df9d50c1c1945e0bf</string>
     <string name="sk_app_key">20799139-c50a-31a6-845a-14f0e533d0fe</string>
 
+    <string name="navi_popup_title">지도앱에서 길찾기</string>
+    <string name="navi_popup_kakaomap">카카오맵</string>
+    <string name="navi_popup_navermap">네이버지도</string>
+    <string name="navi_popup_googlemap">구글맵</string>
+    <string name="navi_popup_tmap">티맵</string>
+    <string name="navi_popup_kakaonavi">카카오내비</string>
 </resources>

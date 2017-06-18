@@ -160,7 +160,7 @@ public class NaviBuilder {
     }
 
     private void intentKakaoNevi() {
-        Location destination = Location.newBuilder(addr, lat, lng).build();
+        Location destination = Location.newBuilder(addr, lng, lat).build();
         NaviOptions options = NaviOptions.newBuilder().setCoordType(CoordType.WGS84).setVehicleType(VehicleType.FIRST).setRpOption(RpOption.SHORTEST).build();
         KakaoNaviParams.Builder builder = KakaoNaviParams.newBuilder(destination).setNaviOptions(options);
         KakaoNaviService.navigate(context, builder.build());
@@ -171,8 +171,7 @@ public class NaviBuilder {
         if (isAppInstall(T_MAP)) {
             final TMapTapi tMapTapi = new TMapTapi(context);
             tMapTapi.setSKPMapAuthentication(context.getString(R.string.sk_app_key));
-            tMapTapi.invokeRoute(addr, (float) lat, (float) lng);
-
+            tMapTapi.invokeRoute(addr, (float) lng, (float) lat);
         }else {
             Intent marketLaunch = new Intent(Intent.ACTION_VIEW);
             marketLaunch.setData(Uri.parse("market://details?id=" + T_MAP));

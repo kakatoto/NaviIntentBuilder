@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="264dp"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:textSize="14dp"
+        android:textColor="@color/black"
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="17dp"
+        android:text="지도앱에서 길찾기"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:id="@+id/btnKakaoMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="40dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="29dp"
+        app:layout_constraintTop_toBottomOf="@+id/txtTitle">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_kakaomap" />
+
+        <TextView
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/navi_popup_kakaomap" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:id="@+id/btnNaverMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="45dp"
+        app:layout_constraintLeft_toRightOf="@+id/btnKakaoMap"
+        app:layout_constraintRight_toLeftOf="@+id/btnGoogleMap"
+        android:layout_marginRight="45dp"
+        android:layout_marginTop="29dp"
+        app:layout_constraintTop_toBottomOf="@+id/txtTitle">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_navermap" />
+
+        <TextView
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/navi_popup_navermap" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btnGoogleMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="34dp"
+        android:layout_marginTop="22dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTitle">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_googlemap" />
+
+        <TextView
+            android:textSize="14dp"
+            android:textColor="@color/black"
+            android:paddingRight="3dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/navi_popup_googlemap" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btnTMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/btnKakaoMap"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="30dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_tmap" />
+
+        <TextView
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:paddingRight="1dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/navi_popup_tmap" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btnKakaoNaviMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/btnNaverMap"
+        android:layout_marginLeft="35dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintLeft_toRightOf="@+id/btnTMap"
+        android:layout_marginRight="124dp"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_kakaonavi" />
+
+        <TextView
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            android:paddingRight="1dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/navi_popup_kakaonavi" />
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

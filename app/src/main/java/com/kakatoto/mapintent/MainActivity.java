@@ -3,6 +3,7 @@ package com.kakatoto.mapintent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
@@ -40,58 +41,26 @@ public class MainActivity extends AppCompatActivity {
 
     public void inits() {
         this.addr = "카카오 판교오피스";
-        this.lat = 127.10821222694533;
-        this.lng = 37.40205604363057;
+        this.lat = 37.40205604363057;
+        this.lng = 127.10821222694533;
 
         txtAddrView.setText(addr);
         txtGeoView.setText(lat + ", " + lng);
     }
 
 
-    @OnClick(R.id.btnGoogleMap)
+    @OnClick(R.id.btnNaviPopup)
     public void onGoogleMapIntent() {
-        NaviBuilder builder = new NaviBuilder.Builder(this)
-                .setAddr(addr)
-                .setLatLng(lat, lng)
-                .setType(NaviBuilder.GOOGLE_MAP).builder();
-        builder.create();
+        NaviIntentDialog naviIntentDialog = new NaviIntentDialog();
+        Bundle bundle = new Bundle();
+        FragmentManager fm = getSupportFragmentManager();
+        bundle.putString("addr", addr);
+        bundle.putDouble("lat", lat);
+        bundle.putDouble("lng", lng);
+        naviIntentDialog.setArguments(bundle);
+        naviIntentDialog.show(fm, "NaviIntentDialog");
     }
 
-    @OnClick(R.id.btnDaumMap)
-    public void onDaumMapIntent() {
-        NaviBuilder builder = new NaviBuilder.Builder(this)
-                .setAddr(addr)
-                .setLatLng(lat, lng)
-                .setType(NaviBuilder.KAKAO_MAP).builder();
-        builder.create();
-    }
-
-    @OnClick(R.id.btnNaverMap)
-    public void onNaverMapIntent() {
-        NaviBuilder builder = new NaviBuilder.Builder(this)
-                .setAddr(addr)
-                .setLatLng(lat, lng)
-                .setType(NaviBuilder.NAVER_MAP).builder();
-        builder.create();
-    }
-
-    @OnClick(R.id.btnKakaoNeviMap)
-    public void onKakaoNeviIntent() {
-        NaviBuilder builder = new NaviBuilder.Builder(this)
-                .setAddr(addr)
-                .setLatLng(lat, lng)
-                .setType(NaviBuilder.KAKAO_NAVI).builder();
-        builder.create();
-    }
-
-    @OnClick(R.id.btnTMap)
-    public void onTMapIntent() {
-        NaviBuilder builder = new NaviBuilder.Builder(this)
-                .setAddr(addr)
-                .setLatLng(lat, lng)
-                .setType(NaviBuilder.T_MAP).builder();
-        builder.create();
-    }
 
 
     public void getHashKey(){
